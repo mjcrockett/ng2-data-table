@@ -12,7 +12,7 @@ module.exports = function(config) {
             {pattern: 'node_modules/zone.js/dist/zone.js', included: true, watched: true},
             {pattern: 'node_modules/reflect-metadata/Reflect.js', included: true, watched: true},
             {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: true},
-            {pattern: 'node_modules/rxjs/bundles/Rx.umd.js', included: true, watched: true},
+            {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
             {pattern: 'node_modules/lodash/lodash.js', included: true, watched: true},
             {pattern: 'karma-test-shim.js', included: true, watched: true},
 

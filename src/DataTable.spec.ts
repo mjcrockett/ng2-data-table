@@ -113,4 +113,30 @@ describe("DataTable directive tests", ()=> {
             ])
         });
     });
+
+    describe("row selecting", ()=>{
+
+        it("selected entities should only contain entities that are selected", () => {
+            let entities = [
+                {id: 2, name: 'Czech'},
+                {id: 3, name: 'Hungary'}
+            ]
+            datatable.addRemoveSelectedEntity(entities[0]);
+            datatable.addRemoveSelectedEntity(entities[1]);
+            datatable.addRemoveSelectedEntity(entities[0]);
+            expect(datatable.selectedEntities.length).toEqual(1);
+        });
+
+        it("should select all entities when all rows are selected", () => {
+            datatable.selectAllRows();
+            expect(datatable.selectedEntities.length).toEqual(5);
+        });
+
+        it("should deselect all entities when all rows are deselected", () => {
+            datatable.selectAllRows();
+            datatable.deselectAllRows();
+            expect(datatable.selectedEntities.length).toEqual(0);
+        });
+
+    });
 });
