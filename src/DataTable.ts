@@ -41,7 +41,7 @@ export class DataTable implements OnChanges, DoCheck {
     public onSortChange = new EventEmitter<SortEvent>();
     public onPageChange = new EventEmitter<PageEvent>();
 
-    public addSelectedEntity($event) {
+    public addRemoveSelectedEntity($event) {
         let index = this.selectedEntities.indexOf($event);
         if (index > -1) {
             this.selectedEntities.splice(index, 1);
