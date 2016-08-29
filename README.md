@@ -37,8 +37,7 @@ app.component.ts
 
  @Component({
      selector: 'app',
-     templateUrl: 'app.component.html',
-     directives: [DataTableDirectives]
+     templateUrl: 'app.component.html'
  })
  export class AppComponent {
      private data: any[] = ...
