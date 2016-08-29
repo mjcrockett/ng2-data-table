@@ -5,7 +5,7 @@
         'src':                        'build', // 'dist',
         'rxjs':                       'node_modules/rxjs',
         '@angular':                   'node_modules/@angular',
-        'angular2-datatable':         'node_modules/angular2-datatable',
+        'ng2-data-table':             'node_modules/ng2-data-table',
         'lodash':                     'node_modules/lodash/lodash.js',
     };
 
@@ -13,7 +13,7 @@
     var packages = {
         'src':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' },
-        'angular2-datatable':         { defaultExtension: 'js' },
+        'ng2-data-table':             { defaultExtension: 'js' },
         'lodash':                     { defaultExtension: 'js' },
     };
 

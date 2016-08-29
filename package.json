@@ -1,12 +1,12 @@
 {
-  "name": "@jdcalkins/angular2-datatable",
-  "version": "0.4.6",
+  "name": "ng2-data-table",
+  "version": "0.4.7",
   "description": "DataTable component for Angular2 framework",
   "main": "datatable",
   "scripts": {
     "postinstall": "cd src && typings install",
     "watch": "tsc -p src -w",
-    "prebuild": "del /q lib",
+    "prebuild": "rm -rf lib",
     "build": "tsc -p src",
     "start": "http-server -c-1 -o -p 8875 .",
     "pretest": "npm run build",
@@ -28,7 +28,9 @@
     "table",
     "pagination",
     "sort",
-    "sorting"
+    "sorting",
+    "row-select",
+    "multi-row-select"
   ],
   "author": "jasondcalkins@gmail.com",
   "license": "MIT",
@@ -37,10 +39,10 @@
   },
   "homepage": "https://github.com/jdcalkins/angular2-datatable#readme",
   "devDependencies": {
-    "@angular/core": "2.0.0-rc.4",
-    "@angular/compiler": "2.0.0-rc.4",
-    "@angular/common": "2.0.0-rc.4",
-    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.5",
+    "@angular/compiler": "2.0.0-rc.5",
+    "@angular/common": "2.0.0-rc.5",
+    "@angular/platform-browser": "2.0.0-rc.5",
     "es6-shim": "^0.35.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
@@ -61,7 +63,7 @@
     "zone.js": "^0.6.12"
   },
   "peerDependencies": {
-    "@angular/core": "2.0.0-rc.4",
+    "@angular/core": "^2.0.0-rc.5",
     "lodash": "^4.0.0",
     "rxjs": "^5.0.0-beta.6"
   }

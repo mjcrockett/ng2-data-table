@@ -1,17 +1,13 @@
 import {Component} from '@angular/core';
 import {DatePipe} from "@angular/common";
-import {HTTP_PROVIDERS, Http} from "@angular/http";
-import {DataTableDirectives} from 'angular2-datatable/datatable';
-
+import {Http} from "@angular/http";
+import {DataTableDirectives} from 'ng2-data-table/datatable';
 
 @Component({
     selector: 'app',
-    templateUrl: 'src/app.html',
-    providers: [HTTP_PROVIDERS],
-    directives: [DataTableDirectives],
-    pipes: [DatePipe]
+    templateUrl: 'src/app.component.html',
 })
-export class App  {
+export class AppComponent  {
 
     private data;
 
