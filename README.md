@@ -1,18 +1,11 @@
 # Table component with sorting and pagination for Angular2
-[![npm version](https://badge.fury.io/js/angular2-datatable.svg)](https://badge.fury.io/js/angular2-datatable)
-[![Build Status](https://travis-ci.org/mariuszfoltak/angular2-datatable.svg?branch=master)](https://travis-ci.org/mariuszfoltak/angular2-datatable)
-[![Code Climate](https://codeclimate.com/github/mariuszfoltak/angular2-datatable/badges/gpa.svg)](https://codeclimate.com/github/mariuszfoltak/angular2-datatable)
-[![Test Coverage](https://codeclimate.com/github/mariuszfoltak/angular2-datatable/badges/coverage.svg)](https://codeclimate.com/github/mariuszfoltak/angular2-datatable/coverage)
-[![npm downloads](https://img.shields.io/npm/dm/angular2-datatable.svg)](https://npmjs.org/angular2-datatable)
 
 ## Demo
-
-Check [live demo](http://plnkr.co/edit/tINlfy?p=preview) in plunker
 
 ## Installation
 
 ```
-npm i -S angular2-datatable
+npm i -S @jdcalkins/angular2-datatable
 ```
 
 ## Usage example
@@ -29,14 +22,18 @@ app.ts
  })
  export class App {
      private data: any[] = ...
+     selectedEntities: any[];
  }
 ```
 
 app.html
 ```html
-<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5"  (mfSelectedEntities)="setSelectedEntities($event)">
     <thead>
     <tr>
+        <th>
+            <mfRowSelectorHead [mfTable]="mf"></mfRowSelectorHead>
+        </th>
         <th style="width: 20%">
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
@@ -53,6 +50,7 @@ app.html
     </thead>
     <tbody>
     <tr *ngFor="let item of mf.data">
+        <td><mfRowSelector [selectedEntities]="mf.selectedEntities" [entity]="item" (selectEntity)="mf.addSelectedEntity($event)"></mfRowSelector></td>
         <td>{{item.name}}</td>
         <td>{{item.email}}</td>
         <td class="text-right">{{item.age}}</td>
@@ -79,13 +77,13 @@ app.html
    - `mfData: any[]` - array of data to display on table
    - `mfRowsOnPage: number` - number of rows should be displayed on page (default: 1000)
    - `mfActivePage: number` - page number should be displayed on init (default: 1)
- 
+
 ### `mfDefaultSorter` component
 
  - selector: `mfDefaultSorter`
  - inputs
    - `by: any` - specify how to sort data (argument for lodash function [_.sortBy ](https://lodash.com/docs#sortBy))
- 
+
 ### `mfBootstrapPaginator` component
 Displays buttons for changing current page and number of displayed rows using bootstrap template (css for bootstrap is required). If array length is smaller than current displayed rows on page then it doesn't show button for changing page. If array length is smaller than min value rowsOnPage then it doesn't show any buttons.
 
