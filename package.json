@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jdcalkins/angular2-datatable.git"
+    "url": "git+https://github.com/jdcalkins/ng2-data-table.git"
   },
   "keywords": [
     "angular",
@@ -35,9 +35,9 @@
   "author": "jasondcalkins@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jdcalkins/angular2-datatable/issues"
+    "url": "https://github.com/jdcalkins/ng2-data-table/issues"
   },
-  "homepage": "https://github.com/jdcalkins/angular2-datatable#readme",
+  "homepage": "https://github.com/jdcalkins/ng2-data-table#readme",
   "devDependencies": {
     "@angular/core": "2.0.0-rc.5",
     "@angular/compiler": "2.0.0-rc.5",
