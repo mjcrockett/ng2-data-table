@@ -5,28 +5,48 @@
 ## Installation
 
 ```
-npm i -S @jdcalkins/angular2-datatable
+npm i -S ng2-data-table
 ```
 
 ## Usage example
 
-app.ts
+app.module.ts
+```typescript
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule }    from '@angular/http';
+
+import { AppComponent }  from './app.component';
+
+import { DataTableDirectives } from 'ng2-data-table/datatable';
+
+@NgModule({
+  imports:      [ BrowserModule, HttpModule ],
+  declarations: [ AppComponent, DataTableDirectives ],
+  bootstrap:    [ AppComponent ]
+})
+
+export class AppModule { }
+
+```
+
+app.component.ts
 ```typescript
  import {Component} from '@angular/core';
- import {DataTableDirectives} from 'angular2-datatable/datatable';
+ import {DataTableDirectives} from 'ng2-data-table/datatable';
 
  @Component({
      selector: 'app',
-     templateUrl: 'app.html',
+     templateUrl: 'app.component.html',
      directives: [DataTableDirectives]
  })
- export class App {
+ export class AppComponent {
      private data: any[] = ...
      selectedEntities: any[];
  }
 ```
 
-app.html
+app.component.html
 ```html
 <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5"  (mfSelectedEntities)="setSelectedEntities($event)">
     <thead>
@@ -50,7 +70,7 @@ app.html
     </thead>
     <tbody>
     <tr *ngFor="let item of mf.data">
-        <td><mfRowSelector [selectedEntities]="mf.selectedEntities" [entity]="item" (selectEntity)="mf.addSelectedEntity($event)"></mfRowSelector></td>
+        <td><mfRowSelector [selectedEntities]="mf.selectedEntities" [entity]="item" (selectEntity)="mf.addRemoveSelectedEntity($event)"></mfRowSelector></td>
         <td>{{item.name}}</td>
         <td>{{item.email}}</td>
         <td class="text-right">{{item.age}}</td>
