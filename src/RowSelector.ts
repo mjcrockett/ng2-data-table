@@ -5,7 +5,7 @@ import {DataTable} from "./DataTable";
     selector: "mfRowSelector",
     template: `
         <input type="checkbox" id="{{optionalId}}" [checked]="isChecked" (change)="onChange($event)" />
-        <label for="{{optionalId}}"></label>
+        <label attr.for="{{optionalId}}"></label>
         `
 })
 export class RowSelector implements OnInit, DoCheck {

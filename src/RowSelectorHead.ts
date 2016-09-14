@@ -5,13 +5,13 @@ import {DataTable} from "./DataTable";
     selector: "mfRowSelectorHead",
     template: `
         <input type="checkbox" id="{{optionalId}}" [checked]="isChecked" (change)="onChange($event)" />
-        <label for="{{optionalId}}"></label>
+        <label attr.for="{{optionalId}}"></label>
         `
 })
 export class RowSelectorHead {
     @Input("mfTable") private dataTable: DataTable;
     @Input("optionalId") optionalId: string;
-    
+
     private isChecked: boolean = false;
 
     public constructor() {
