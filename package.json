@@ -4,7 +4,6 @@
     "description": "DataTable component for Angular2 framework",
     "main": "datatable",
     "scripts": {
-        "postinstall": "cd src && typings install",
         "watch": "tsc -p src -w",
         "prebuild": "rm -rf lib",
         "build": "tsc -p src",
@@ -53,11 +52,12 @@
         "karma-jasmine": "^1.0.2",
         "lodash": "^4.0.0",
         "remap-istanbul": "^0.6.3",
-        "rxjs": "5.0.0-beta.12",
+        "rxjs": "^5.0.0-beta.12",
         "systemjs": "^0.19.27",
-        "typescript": "^1.8.10",
-        "typings": "^0.8.1",
-        "zone.js": "^0.6.25"
+        "typescript": "^2.0.3",
+        "zone.js": "^0.6.25",
+        "@types/lodash": "^4.14.37",
+        "@types/jasmine": "^2.5.35"
     },
     "peerDependencies": {
         "@angular/core": "^2.0.0",
