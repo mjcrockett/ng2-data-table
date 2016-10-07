@@ -1,6 +1,5 @@
 import {Component, Input, OnChanges} from "@angular/core";
 import {DataTable} from "./DataTable";
-import {Paginator} from "./Paginator";
 import * as _ from "lodash";
 
 @Component({
@@ -48,8 +47,7 @@ import * as _ from "lodash";
             </li>
         </nav>
     </mfPaginator>
-    `,
-    directives: [Paginator]
+    `
 })
 export class BootstrapPaginator implements OnChanges {
     @Input("rowsOnPageSet") private rowsOnPageSet = [];
@@ -57,8 +55,8 @@ export class BootstrapPaginator implements OnChanges {
 
     private minRowsOnPage = 0;
 
-    ngOnChanges(changes:any):any {
-        if(changes.rowsOnPageSet) {
+    ngOnChanges(changes: any): any {
+        if (changes.rowsOnPageSet) {
             this.minRowsOnPage = _.min(this.rowsOnPageSet)
         }
     }
