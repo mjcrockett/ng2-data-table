@@ -13,6 +13,7 @@ devrelease.sh
 .gitignore
 karma.conf.js
 karma-test-shim.js
+systemjs.config.js
 .npmignore
 release.sh
 .travis.yml
