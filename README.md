@@ -12,28 +12,26 @@ npm i -S ng2-data-table
 
 app.module.ts
 ```typescript
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule }    from '@angular/http';
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpModule} from "@angular/http";
 
-import { AppComponent }  from './app.component';
+import {AppComponent} from "./app.component";
 
-import { DataTableDirectives } from 'ng2-data-table/datatable';
+import {DataTableModule} from "ng2-data-table/lib/DataTableModule";
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule ],
-  declarations: [ AppComponent, DataTableDirectives ],
-  bootstrap:    [ AppComponent ]
+    imports: [BrowserModule, HttpModule, DataTableModule],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent]
 })
-
-export class AppModule { }
-
+export class AppModule {
+}
 ```
 
 app.component.ts
 ```typescript
  import {Component} from '@angular/core';
- import {DataTableDirectives} from 'ng2-data-table/datatable';
 
  @Component({
      selector: 'app',

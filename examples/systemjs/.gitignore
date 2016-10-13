@@ -1,2 +1,4 @@
-typings/
-build/
+.idea
+node_modules
+app/*.js
+app/*.js.map
