@@ -12,12 +12,12 @@ export class RowSelectorHead {
     @Input("mfTable") private dataTable: DataTable;
     @Input("optionalId") optionalId: string;
 
-    private isChecked: boolean = false;
+    isChecked: boolean = false;
 
     public constructor() {
     }
 
-    private onChange($event) {
+    onChange($event) {
         this.isChecked = !this.isChecked;
         if (this.isChecked) {
             this.dataTable.selectAllRows();
