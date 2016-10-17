@@ -1,5 +1,4 @@
 import {Component, Input, Output, EventEmitter, OnInit, DoCheck} from "@angular/core";
-import {DataTable} from "./DataTable";
 
 @Component({
     selector: "mfRowSelector",
@@ -14,7 +13,7 @@ export class RowSelector implements OnInit, DoCheck {
     @Input("selectedEntities") private selectedEntities: any[];
     @Input("checkboxId") checkboxId: string;
 
-    private isChecked: boolean = false;
+    isChecked: boolean = false;
 
     public constructor() {
     }
@@ -34,7 +33,7 @@ export class RowSelector implements OnInit, DoCheck {
         }
     }
 
-    private onChange($event) {
+    onChange($event) {
         this.isChecked = !this.isChecked;
         this.rowSelected.emit(this.rowEntity);
     }
