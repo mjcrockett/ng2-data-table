@@ -3,7 +3,7 @@ node_js:
 - '5'
 before_install:
 - npm install -g codeclimate-test-reporter
-script: npm test -- --browsers PhantomJS
+script: npm test -- --browsers Chrome
 after_script:
 - npm run coverage-remap
 - codeclimate-test-reporter < coverage/coverage-remapped.lcov
