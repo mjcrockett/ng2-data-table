@@ -3,7 +3,7 @@
 /.git/
 /.idea/
 /node_modules/
-/src/typings/
+/src/
 /aot
 
 .codeclimate.yml
@@ -17,3 +17,4 @@ systemjs.config.js
 .npmignore
 release.sh
 .travis.yml
+.vscode

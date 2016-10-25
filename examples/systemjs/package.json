@@ -1,31 +1,31 @@
 {
-    "name": "example",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-        "build": "tsc",
-        "start": "tsc && concurrently \"tsc -w\" \"lite-server\" "
-    },
-    "author": "",
-    "license": "MIT",
-    "devDependencies": {
-        "concurrently": "^3.1.0",
-        "lite-server": "^2.1.0",
-        "typescript": "^2.0.3"
-    },
-    "dependencies": {
-        "@angular/common": "^2.1.0",
-        "@angular/compiler": "^2.1.0",
-        "@angular/core": "^2.1.0",
-        "@angular/http": "^2.1.0",
-        "@angular/platform-browser": "^2.1.0",
-        "@angular/platform-browser-dynamic": "^2.1.0",
-        "ng2-data-table": "^0.4.9",
-        "bootstrap": "^3.3.6",
-        "core-js": "^2.4.1",
-        "lodash": "^4.6.1",
-        "rxjs": "^5.0.0-beta.12",
-        "systemjs": "^0.19.9",
-        "zone.js": "^0.6.12"
-    }
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" "
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "lite-server": "^2.1.0",
+    "typescript": "^2.0.3"
+  },
+  "dependencies": {
+    "@angular/common": "^2.1.0",
+    "@angular/compiler": "^2.1.0",
+    "@angular/core": "^2.1.0",
+    "@angular/http": "^2.1.0",
+    "@angular/platform-browser": "^2.1.0",
+    "@angular/platform-browser-dynamic": "^2.1.0",
+    "bootstrap": "^3.3.6",
+    "core-js": "^2.4.1",
+    "lodash": "^4.6.1",
+    "ng2-data-table": "^0.5.9",
+    "rxjs": "^5.0.0-beta.12",
+    "systemjs": "^0.19.9",
+    "zone.js": "^0.6.12"
+  }
 }
