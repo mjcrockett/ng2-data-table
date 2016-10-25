@@ -3,6 +3,7 @@
 ## 0.5.9 (2016-10-24)
 
 Feature:
+
     - add support for AOT compilation
     - update to Angular 2.0.0 release version
 
