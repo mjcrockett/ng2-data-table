@@ -1,5 +1,11 @@
 #Changelog
 
+## 0.5.11 (2016-10-26)
+
+Bugfixes:
+
+    - adding and removing data from inputData now properly refreshes table accordingly
+
 ## 0.5.9 (2016-10-24)
 
 Feature:

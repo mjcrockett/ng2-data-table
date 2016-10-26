@@ -29,14 +29,12 @@ describe("DataTable directive tests", ()=> {
                 name: 'Ukraine'
             }
         ];
-        datatable.ngOnChanges({inputData: new SimpleChange(null, datatable.inputData)});
     });
 
     describe("initializing", ()=> {
 
         it("data should be empty array if inputData is undefined or null", () => {
             let datatable = new DataTable();
-            datatable.ngOnChanges({inputData: new SimpleChange(null, null)});
             datatable.ngDoCheck();
             expect(datatable.data).toEqual([]);
         });
@@ -74,7 +72,6 @@ describe("DataTable directive tests", ()=> {
         it("shouldn't recalculate data when no changes", ()=> {
             datatable.ngDoCheck();
             let data = datatable.data;
-            datatable.ngOnChanges({});
             datatable.ngDoCheck();
             expect(datatable.data).toBe(data);
         });
@@ -152,7 +149,7 @@ describe("DataTable directive tests", ()=> {
             let data = datatable.data;
             datatable.setSort("name", "asc");
             datatable.ngDoCheck();
-            expect(datatable.data).toBe(data);
+            expect(datatable.data).toEqual(data);
         });
 
         it("should sort data ascending by name", ()=> {
@@ -211,6 +208,74 @@ describe("DataTable directive tests", ()=> {
             datatable.selectAllRows();
             datatable.deselectAllRows();
             expect(datatable.selectedEntities.length).toEqual(0);
+        });
+
+    });
+
+    describe("adding input data", ()=> {
+
+        it("should add a row of data to the table", () => {
+            let newData = {
+                id: 6,
+                name: 'United States'
+            }
+            datatable.ngDoCheck();
+            datatable.inputData.push(newData);
+            datatable.ngDoCheck();
+            expect(datatable.data).toEqual([
+                {
+                    id: 3,
+                    name: 'Poland'
+                },
+                {
+                    id: 1,
+                    name: 'Slovakia'
+                },
+                {
+                    id: 2,
+                    name: 'Czech'
+                },
+                {
+                    id: 5,
+                    name: 'Hungary'
+                },
+                {
+                    id: 4,
+                    name: 'Ukraine'
+                },
+                {
+                    id: 6,
+                    name: 'United States'
+                }
+            ])
+        });
+
+    });
+
+    describe("removing input data", ()=> {
+
+        it("should remove a row of data from the table", () => {
+            datatable.ngDoCheck();
+            datatable.inputData.pop();
+            datatable.ngDoCheck();
+            expect(datatable.data).toEqual([
+                {
+                    id: 3,
+                    name: 'Poland'
+                },
+                {
+                    id: 1,
+                    name: 'Slovakia'
+                },
+                {
+                    id: 2,
+                    name: 'Czech'
+                },
+                {
+                    id: 5,
+                    name: 'Hungary'
+                }
+            ])
         });
 
     });

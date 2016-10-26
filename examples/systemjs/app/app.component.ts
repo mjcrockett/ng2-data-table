@@ -8,6 +8,7 @@ import {Http} from "@angular/http";
 export class AppComponent implements OnInit {
 
     private data;
+    private index;
 
     selectedEntities: any[];
 
@@ -15,6 +16,8 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.index = 0;
+        this.data = new Array<any>();
         this.http.get("/app/data.json")
             .subscribe((data)=> {
                 setTimeout(()=> {
@@ -33,6 +36,22 @@ export class AppComponent implements OnInit {
 
     private sortByWordLength = (a: any) => {
         return a.name.length;
+    }
+
+    public addData() {
+        this.data.push(  
+            {
+            "name": "Newly Added Item " + this.index++,
+            "email": "tellus.eu.augue@arcu.com",
+            "regDate": "2016-01-09T14:48:34-08:00",
+            "city": "Paglieta",
+            "age": 25
+            }
+        )
+    }
+
+    public removeData() {
+        this.data.pop();
     }
 
 }

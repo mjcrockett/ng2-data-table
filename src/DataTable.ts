@@ -1,4 +1,4 @@
-import {Directive, Input, Output, EventEmitter, SimpleChange, OnChanges, DoCheck} from "@angular/core";
+import {Directive, Input, Output, EventEmitter, SimpleChange, DoCheck, OnInit} from "@angular/core";
 import * as _ from "lodash";
 
 export interface SortEvent {
@@ -20,9 +20,10 @@ export interface DataEvent {
     selector: 'table[mfData]',
     exportAs: 'mfDataTable'
 })
-export class DataTable implements OnChanges, DoCheck {
+export class DataTable implements OnInit, DoCheck {
 
     @Input("mfData") public inputData: any[] = [];
+    private inputDataLength: number;
 
     private sortBy = "";
     private sortOrder = "asc";
@@ -97,23 +98,29 @@ export class DataTable implements OnChanges, DoCheck {
         return newActivePage;
     }
 
-    public ngOnChanges(changes: { [key: string]: SimpleChange }): any {
-        if (changes["inputData"]) {
+    public ngOnInit() {
+        this.inputDataLength = this.inputData.length;
+    }
+
+    public ngDoCheck(): any {
+        if (this.mustRecalculateData
+            || this.isInputDataChanged() ) {
             this.inputData = this.inputData || [];
             this.onPageChange.emit({
                 activePage: this.activePage,
                 rowsOnPage: this.rowsOnPage,
                 dataLength: this.inputData.length
             });
-            this.mustRecalculateData = true;
-        }
-    }
-
-    public ngDoCheck(): any {
-        if (this.mustRecalculateData) {
             this.fillData();
             this.mustRecalculateData = false;
         }
+    }
+
+    private isInputDataChanged(): boolean {
+        let isDataLengthChanged = this.inputDataLength != this.inputData.length;
+        this.inputDataLength = this.inputData.length;
+
+        return isDataLengthChanged;
     }
 
     private fillData(): void {
