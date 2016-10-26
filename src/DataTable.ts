@@ -1,4 +1,4 @@
-import {Directive, Input, Output, EventEmitter, SimpleChange, DoCheck, OnInit} from "@angular/core";
+import {Directive, Input, Output, EventEmitter, SimpleChange, DoCheck, OnInit, OnChanges} from "@angular/core";
 import * as _ from "lodash";
 
 export interface SortEvent {
@@ -20,7 +20,7 @@ export interface DataEvent {
     selector: 'table[mfData]',
     exportAs: 'mfDataTable'
 })
-export class DataTable implements OnInit, DoCheck {
+export class DataTable implements OnInit, DoCheck, OnChanges {
 
     @Input("mfData") public inputData: any[] = [];
     private inputDataLength: number;
@@ -100,6 +100,13 @@ export class DataTable implements OnInit, DoCheck {
 
     public ngOnInit() {
         this.inputDataLength = this.inputData.length;
+    }
+
+    public ngOnChanges(changes: { [key: string]: SimpleChange }): any {
+        if (changes["inputData"]) {
+            this.mustRecalculateData = true;
+            this.ngDoCheck();
+        }
     }
 
     public ngDoCheck(): any {
