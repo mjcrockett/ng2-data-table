@@ -4,13 +4,15 @@ import {DataTable} from "./DataTable";
 @Component({
     selector: "mfRowSelector",
     template: `
-        <input type="checkbox" [checked]="isChecked" (change)="onChange($event)" />
+        <input type="checkbox" id="{{optionalId}}" [checked]="isChecked" (change)="onChange($event)" />
+        <label attr.for="{{optionalId}}"></label>
         `
 })
 export class RowSelector implements OnInit, DoCheck {
     @Output("selectEntity") rowSelected = new EventEmitter();
     @Input("entity") private rowEntity: any = Object;
     @Input("selectedEntities") private selectedEntities: any[];
+    @Input("optionalId") optionalId: string;
 
     private isChecked: boolean = false;
 
