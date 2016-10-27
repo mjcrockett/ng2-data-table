@@ -4,8 +4,8 @@ import {DataTable} from "./DataTable";
 @Component({
     selector: "mfRowSelectorHead",
     template: `
-        <input type="checkbox" id="{{checkboxId}}" [checked]="isChecked" (change)="onChange($event)" />
-        <label attr.for="{{checkboxId}}"></label>
+        <input type="checkbox" class="chkbx" id="{{checkboxId}}" [checked]="isChecked" (change)="onChange($event)" />
+        <label attr.for="{{checkboxId}}" class="chkbx-lbl"></label>
         `
 })
 export class RowSelectorHead {
