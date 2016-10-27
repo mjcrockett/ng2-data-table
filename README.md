@@ -12,28 +12,26 @@ npm i -S ng2-data-table
 
 app.module.ts
 ```typescript
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule }    from '@angular/http';
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpModule} from "@angular/http";
 
-import { AppComponent }  from './app.component';
+import {AppComponent} from "./app.component";
 
-import { DataTableDirectives } from 'ng2-data-table/datatable';
+import {DataTableModule} from "ng2-data-table/lib/DataTableModule";
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule ],
-  declarations: [ AppComponent, DataTableDirectives ],
-  bootstrap:    [ AppComponent ]
+    imports: [BrowserModule, HttpModule, DataTableModule],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent]
 })
-
-export class AppModule { }
-
+export class AppModule {
+}
 ```
 
 app.component.ts
 ```typescript
  import {Component} from '@angular/core';
- import {DataTableDirectives} from 'ng2-data-table/datatable';
 
  @Component({
      selector: 'app',
@@ -68,8 +66,11 @@ app.component.html
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of mf.data">
-        <td><mfRowSelector [selectedEntities]="mf.selectedEntities" [entity]="item" (selectEntity)="mf.addRemoveSelectedEntity($event)"></mfRowSelector></td>
+      <tr *ngFor="let item of mf.data; let ndx = index">
+        <td>
+          <mfRowSelector [selectedEntities]="mf.selectedEntities" [entity]="item"
+          [checkboxId] = "ndx" (selectEntity)="mf.addRemoveSelectedEntity($event)"></mfRowSelector>
+        </td>
         <td>{{item.name}}</td>
         <td>{{item.email}}</td>
         <td class="text-right">{{item.age}}</td>
@@ -108,4 +109,13 @@ Displays buttons for changing current page and number of displayed rows using bo
 
  - selector: `mfBootstrapPaginator`
  - inputs
-   - `rowsOnPageSet: number` - specify values for buttons to change number of diplayed rows
+   - `rowsOnPageSet: number` - specify values for buttons to change number of displayed rows
+
+### `mfRowSelector` component
+Displays a checkbox for the row. When checked, the entity in the row is added to the mfDataTable's mfSelectedEntities. The mfSelectedEntities then emits the array of entities currently checked in the mfDataTable.
+
+ - selector: `mfRowSelector`
+ - inputs:
+   - `entity: any` - the data entity in the current row
+   - `selectedEntities: any[]` - the array of data entities currently selected in the datatable
+   - `checkboxId: string` - optionally specify the id used by the checkbox's "id" attribute and the checkbox label's "for" attribute

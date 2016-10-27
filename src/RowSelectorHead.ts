@@ -4,20 +4,20 @@ import {DataTable} from "./DataTable";
 @Component({
     selector: "mfRowSelectorHead",
     template: `
-        <input type="checkbox" id="{{optionalId}}" [checked]="isChecked" (change)="onChange($event)" />
-        <label attr.for="{{optionalId}}"></label>
+        <input type="checkbox" class="chkbx" id="{{checkboxId}}" [checked]="isChecked" (change)="onChange($event)" />
+        <label attr.for="{{checkboxId}}" class="chkbx-lbl"></label>
         `
 })
 export class RowSelectorHead {
     @Input("mfTable") private dataTable: DataTable;
-    @Input("optionalId") optionalId: string;
+    @Input("checkboxId") checkboxId: string;
 
-    private isChecked: boolean = false;
+    isChecked: boolean = false;
 
     public constructor() {
     }
 
-    private onChange($event) {
+    onChange($event) {
         this.isChecked = !this.isChecked;
         if (this.isChecked) {
             this.dataTable.selectAllRows();
