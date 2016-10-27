@@ -1,5 +1,18 @@
 #Changelog
 
+## 0.5.11 (2016-10-26)
+
+Bugfixes:
+
+    - adding and removing data from inputData now properly refreshes table accordingly
+
+## 0.5.9 (2016-10-24)
+
+Feature:
+
+    - add support for AOT compilation
+    - update to Angular 2.0.0 release version
+
 ## 0.4.2 (2016-05-11)
 
 Breaking changes:
